@@ -1,0 +1,20 @@
+unit uMitarbeiter;
+
+interface
+
+type
+  TMitarbeiter = class()
+    private
+      //Private Stuff
+    public
+      //Public Stuff
+    protected
+      //Protected Stuff
+      vname:String;
+      nname:String;
+      alter:int;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,13 @@
+unit uPerson;
+
+interface
+
+type
+  TPerson = class(TObject)
+    private
+    public
+  end;
+
+implementation
+
+end.

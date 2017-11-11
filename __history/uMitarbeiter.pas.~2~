@@ -1,0 +1,49 @@
+unit uMitarbeiter;
+
+interface
+
+uses
+  uPerson, Dialogs;
+
+type
+  //TPerson ist die Superklasse und TMitarbeiter die Subklasse
+  TMitarbeiter = class(TPerson)
+    private
+      //Private Stuff
+      //Variablen Zugriff nur innerhalb von TMitarbeiter
+      fGehalt:integer;
+      fAbteilung:integer;
+      //Dienen zum befüllen der Variablen von außerhalb (über die jeweilige Property)
+      procedure Setgehalt(gehalt: integer);
+      procedure Setabteilung(abteilung: integer);
+    public
+      //Public Stuff
+      constructor Create(vname, nname: String; alter, gehalt, abteilung: integer);
+      //Property für den Zugriff von außen
+      property m_gehalt: integer read fGehalt write Setgehalt;
+      property m_abteilung: integer read fAbteilung write Setabteilung;
+    protected
+      //Protected Stuff
+  end;
+
+implementation
+
+constructor TMitarbeiter.Create(vname, nname: String; alter, gehalt, abteilung: integer);
+begin
+  //inherited ruft das Ursprüngliche Create auf (TPerson)
+  inherited Create(vname,nname,alter);
+  fGehalt:=gehalt;
+  fAbteilung:=abteilung;
+end;
+
+procedure TMitarbeiter.Setgehalt(gehalt: integer);
+begin
+  fGehalt:=gehalt;
+end;
+
+procedure TMitarbeiter.Setabteilung(abteilung: integer);
+begin
+  fAbteilung:=abteilung;
+end;
+
+end.
